@@ -22,6 +22,56 @@
     <!-- <script src="GMLIB/ui.js"></script> -->
     <!-- <script src="GMLIB/util.js"></script> -->
     <!-- <script src="GMLIB/voice.js"></script> -->
+<style>
+body { /* ...or body.dialogShowing */
+  overflow: hidden;
+}
+
+.shape {
+  height: 5px;
+  width: 100px;
+  border-bottom: 2px solid red;
+  border-right: 2px solid red;
+  -moz-transform: skew(-45deg);
+  -webkit-transform: skew(-45deg);
+  transform: skew(-45deg);
+}
+
+#map-box {
+width:800px;
+xheight:390px;
+position: absolute;
+top: 0px;
+left: 0px;
+xoverflow:hidden;
+transform: rotate(0deg);
+}
+
+#map {
+width:200%;
+xheight:100%;
+position: absolute;
+top: 0px;
+left: 0px;
+xoverflow:hidden;
+transform: rotate(0deg);
+}
+
+#you {
+position: absolute;
+top:390px;
+left:370px;
+}
+
+.camera {
+xbackground: red;
+position:absolute;
+top: 180px;
+left: 150px;
+width: 200px;
+transform: rotate(0deg);
+}
+</style>
 
   </head>
   <body>
@@ -30,15 +80,57 @@
       <div id="main">
 
         <!-- Remove all code inside #main and add your own! -->
-        <h1>Traffic+</h1>
-        <p>
-          Your VIN is: <span id="vin"></span>
-        </p>
+<div id="map-box"><img id="map" src="images/map.png"></div>
+<div><a href="view-cam1.html"><img id="camera1" class="camera" src="images/cam1.jpeg"><a/></div>
+<div><a href="view-cam2.html"><img id="camera2" class="camera" src="images/cam2.jpeg"><a/></div>
+<div><a href="view-cam3.html"><img id="camera3" class="camera" src="images/cam3.jpeg"><a/></div>
+<div id="you">🚗</div>
 
       </div>
     </div>
 
     <!-- Your app code: -->
     <script src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+var x = 0;
+var y = 0; 
+var angle = 0;
+
+$(document).ready(function(){
+
+x = -100;
+y = -100;
+angle = 5;
+
+move();
+setTimeout(move, 1000);
+});
+
+var move = function(){
+   $(camera1).css("left", x + 250 + "px");
+   $(camera1).css("top", y  + 400 + "px");
+
+   $(camera2).css("left", x + 220 + "px");
+   $(camera2).css("top", y  + 200 + "px");
+
+   $(camera3).css("left", x + 520 + "px");
+   $(camera3).css("top", y  + 300 + "px");
+
+   //$(camera1).css("transform", "rotate("+angle+"deg)");
+
+   $(map).css("left", x + "px");
+   $(map).css("top", y + "px");
+   $(map).css("transform", "rotate("+angle+"deg)");
+   //$(map).css("display", "");
+x = x + 0.1;
+y = y + 0.4;
+angle = angle - 0.1;
+setTimeout(move, 1000);
+};
+
+</script>
+
   </body>
 </html>
