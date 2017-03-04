@@ -4,5 +4,5 @@ This is our entry in the GM Makers Hustle Harder hackathon, Trafficam.
 
 Trafficam shows images from traffic cameras along your upcoming route.
 
-![screenshot](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Screenshot")
+![screenshot](https://github.com/ki4swy/ths_gm_hackathon/raw/master/screenshot.png "Screenshot")
 
